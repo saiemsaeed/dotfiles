@@ -59,3 +59,8 @@ vim.keymap.set("n", "<c-/>", function()
 end, { desc = "Terminal (Root Dir)" })
 
 vim.keymap.set("i", "jk", "<esc>", { noremap = true, desc = "Select all text in buffer" })
+vim.keymap.set("n", "go", function()
+  local file = vim.fn.expand("%:.")
+  local line = vim.fn.line(".")
+  vim.fn.system("gh browse " .. file .. ":" .. line)
+end)

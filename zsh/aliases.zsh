@@ -13,7 +13,9 @@ alias gcm="git commit -m"
 alias gwl="git worktree list"
 
 # Zoxide
-# alias cd="z"
+if [ -z "$DISABLE_ZOXIDE" ]; then
+  alias cd="z"
+fi
 
 #AI 
 alias ai="claude"
