@@ -34,6 +34,10 @@ return {
       },
       picker = {
         sources = {
+          projects = {
+            dev = { "~/code/zalando", "~/code/personal" },
+            patterns = { ".git", ".root" },
+          },
           explorer = {
             ---@diagnostic disable-next-line: missing-fields
             diagnostics = false,
