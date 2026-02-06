@@ -8,6 +8,7 @@ precmd() {
     echo
   fi
   PROMPT_NEEDS_NEWLINE=true
+  print -Pn "\e]1;${PWD##*/}\a"  # Set the tab title to the current directory name
 }
 
 clear() {

@@ -22,16 +22,13 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 # OpenJDK
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
-# Deno
-. "$HOME/.deno/env"
-
 # FZF shell integration
 source $(brew --prefix)/opt/fzf/shell/key-bindings.zsh
 source $(brew --prefix)/opt/fzf/shell/completion.zsh
 
-# ZSH plugins (manual installation)
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# # ZSH plugins (manual installation)
+# source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Tool initializations
 eval "$(starship init zsh)"
