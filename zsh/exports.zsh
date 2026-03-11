@@ -19,7 +19,7 @@ export LOUNGE_LOCAL_CERTIFICATE_KEY=/Users/sasaeed/code/zalando/zl-skipper/tools
 
 # Package manager configuration (npm or yarn)
 export PACKAGE_MANAGER=${PACKAGE_MANAGER:-yarn}
-export PATH="$PATH:$(yarn global bin)"
+export PATH="$PATH:$HOME/.yarn/bin"
 
 # Load sensitive environment variables from .env file
 [[ -f ~/dotfiles/zsh/.env ]] && source ~/dotfiles/zsh/.env
