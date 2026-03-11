@@ -11,10 +11,14 @@ export PATH="$PATH:$HOME/.local/bin"
 
 # PyEnv
 export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-if [ -n "$PS1" -a -n "$BASH_VERSION" ]; then source ~/.bashrc; fi
 eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+
+# Lazy-load pyenv virtualenv: only initialize when needed
+pyenv() {
+    unfunction pyenv
+    eval "$(command pyenv virtualenv-init -)"
+    pyenv "$@"
+}
 
 # Volta (Node.js)
 export PATH="$VOLTA_HOME/bin:$PATH"
@@ -23,13 +27,14 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
 # FZF shell integration
-source $(brew --prefix)/opt/fzf/shell/key-bindings.zsh
-source $(brew --prefix)/opt/fzf/shell/completion.zsh
+source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
+source /opt/homebrew/opt/fzf/shell/completion.zsh
 
-# # ZSH plugins (manual installation)
-# source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-# source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# ZSH plugins
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Tool initializations
 eval "$(starship init zsh)"
-eval "$(zoxide init zsh)"
+RPROMPT=''
+
