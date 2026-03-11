@@ -33,6 +33,7 @@ keybind = ctrl+opt+shift+cmd+h=goto_split:left
 keybind = ctrl+opt+shift+cmd+j=goto_split:bottom
 keybind = ctrl+opt+shift+cmd+k=goto_split:top
 keybind = ctrl+opt+shift+cmd+l=goto_split:right
+keybind = cmd+shift+w=close_tab
 
 
 keybind = global:shift+ctrl+alt+super+r=toggle_quick_terminal
@@ -41,3 +42,5 @@ quick-terminal-size = 40%
 
 # custom-shader = shaders/cursor_smear.glsl
 keybind = shift+enter=text:\x1b\r
+# auto-update-channel = tip
+
