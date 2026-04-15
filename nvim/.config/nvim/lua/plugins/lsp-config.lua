@@ -3,17 +3,9 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       diagnostics = {
-        virtual_text = false,
-        -- virtual_lines = false,
-        -- virtual_text = {
-        --   severity = {
-        --     max = vim.diagnostic.severity.WARN,
-        --   },
-        --   current_line = true,
-        -- },
-        virtual_lines = {
-          current_line = true,
-        },
+        -- initial state; autocmds.lua dynamically toggles between virtual_text and virtual_lines
+        virtual_text = true,
+        virtual_lines = false,
         signs = {
           text = {
             [vim.diagnostic.severity.ERROR] = "",

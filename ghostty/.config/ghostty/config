@@ -1,7 +1,7 @@
 # theme = Gruvbox Dark Hard
 theme = dark:Gruvbox Dark Hard,light:Rose Pine Dawn
 # theme = Mellifluous
-font-family = "JetBrainsMono Nerd Font"
+font-family = "JetBrains Mono"
 font-size = 17 
 cursor-style = block
 macos-titlebar-style=hidden
@@ -38,9 +38,9 @@ keybind = cmd+shift+w=close_tab
 
 keybind = global:shift+ctrl+alt+super+r=toggle_quick_terminal
 quick-terminal-animation-duration = 0
-quick-terminal-size = 40%
+quick-terminal-size = 60%
 
 # custom-shader = shaders/cursor_smear.glsl
 keybind = shift+enter=text:\x1b\r
-# auto-update-channel = tip
+auto-update-channel = stable
 

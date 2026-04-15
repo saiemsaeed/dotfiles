@@ -14,12 +14,19 @@ return {
         css = { "prettierd" },
         html = { "prettierd" },
         json = { "prettierd" },
+        jsonc = { "prettierd" },
         yaml = { "prettierd" },
         markdown = { "prettierd" },
         graphql = { "prettierd" },
         go = { "gofumpt", "goimports" },
         astro = { "prettierd" },
         java = { "google-java-format" },
+        zig = { "zigfmt" },
+      },
+      format_on_save = {
+        -- 2. Use LSP (ZLS) as a backup if zigfmt isn't found
+        lsp_format = "fallback",
+        timeout_ms = 500,
       },
       formatters = {
         prettier = {

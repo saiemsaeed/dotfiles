@@ -1,21 +1,46 @@
 return {
   "dmtrKovalenko/fff.nvim",
   build = function()
-    -- this will download prebuild binary or try to use existing rustup toolchain to build from source
-    -- (if you are using lazy you can use gb for rebuilding a plugin if needed)
     require("fff.download").download_or_build_binary()
   end,
-  -- if you are using nixos
-  -- build = "nix run .#release",
-  opts = { -- (optional)
-    promt = "🔍",
+  opts = {
+    prompt = "  ",
     debug = {
-      enabled = true, -- we expect your collaboration at least during the beta
-      show_scores = false, -- to help us optimize the scoring system, feel free to share your scores!
+      enabled = false,
+      show_scores = false,
     },
     layout = {
-      prompt_position = "top", -- or 'top'
+      prompt_position = "top",
+      preview_position = "right",
+      preview_size = 0.45,
+      -- on narrow screens, move preview above results instead of squishing side-by-side
+      flex = {
+        size = 140,
+        wrap = "top",
+      },
+      show_scrollbar = true,
+      path_shorten_strategy = "middle_number",
     },
+    preview = {
+      enabled = true,
+      line_numbers = true,
+      wrap_lines = false,
+      filetypes = {
+        markdown = { wrap_lines = true },
+        text = { wrap_lines = true },
+      },
+    },
+    -- git status colors on filenames in the picker
+    git = {
+      status_text_color = true,
+    },
+    grep = {
+      smart_case = true,
+      time_budget_ms = 150,
+      modes = { "plain", "regex", "fuzzy" },
+    },
+    frecency = { enabled = true },
+    history = { enabled = true },
   },
   lazy = false,
   keys = {
@@ -24,23 +49,30 @@ return {
       function()
         require("fff").find_files()
       end,
-      desc = "FFF Find Files",
+      desc = "Find Files (FFF)",
     },
-    -- Replace default live_grep
     {
       "<leader>sg",
       function()
         require("fff").live_grep()
       end,
-      desc = "FFF Live Grep",
+      desc = "Live Grep (FFF)",
     },
-    -- Replace default buffers
     {
       "<leader><space>",
       function()
         require("fff").find_files()
       end,
-      desc = "FFF Buffers",
+      desc = "Find Files (FFF)",
+    },
+    -- find files relative to the current buffer's directory
+    {
+      "<leader>fd",
+      function()
+        local dir = vim.fn.expand("%:p:h")
+        require("fff").find_files_in_dir(dir)
+      end,
+      desc = "Find Files in Buffer Dir (FFF)",
     },
   },
 }

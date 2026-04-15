@@ -79,3 +79,18 @@ end
 
 -- Set up the dynamic diagnostics
 setup_dynamic_diagnostics()
+
+-- Auto-restore last session when opening Neovim with no file arguments
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    -- only restore if no files were passed as arguments and we're not in a git commit/rebase
+    if vim.fn.argc() == 0 and vim.fn.isdirectory(vim.fn.argv(0) or "") == 0 then
+      local ok, persistence = pcall(require, "persistence")
+      if ok then
+        persistence.load()
+      end
+    end
+  end,
+  desc = "Auto-restore last session on startup",
+  nested = true,
+})
