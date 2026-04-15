@@ -1,5 +1,9 @@
 .env
 
+# Local identity overrides (never commit)
+git/.gitconfig.local
+git/.work-gitconfig.local
+
 # SSH: ignore everything by default
 ssh/.ssh/**
 

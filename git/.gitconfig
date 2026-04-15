@@ -1,0 +1,50 @@
+[include]
+	path = ~/.gitconfig.local
+
+[includeIf "hasconfig:remote.*.url:git@github-zse:zalando-*/**"]
+    path = ~/.work-gitconfig
+[includeIf "hasconfig:remote.*.url:git@github.com:zalando-*/**"]
+    path = ~/.work-gitconfig
+[includeIf "hasconfig:remote.*.url:https://github.com/zalando-*/**"]
+    path = ~/.work-gitconfig
+
+[alias]
+	co = checkout
+	unstage = reset HEAD --
+	dt = difftool
+	df = diff
+	cm = commit -m
+	url =! bash -c 'git config --get remote.origin.url | sed -E "s/.+:\\(.+\\)\\.git$/https:\\\\/\\\\/github\\\\.com\\\\/\\\\1/g"'
+
+[core]
+	editor = nvim
+[diff]
+	tool = critique
+[difftool]
+	prompt = false
+[difftool "vimdiff"]
+	cmd = vimdiff \"$LOCAL\" \"$REMOTE\"
+[merge]
+	tool = vimdiff
+[pager]
+	branch = false
+[push]
+	autoSetupRemote = true
+[pull]
+	rebase = true
+[difftool "critique"]
+	cmd = critique difftool \"$LOCAL\" \"$REMOTE\"
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[credential "https://github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+[commit]
+	gpgsign = true
