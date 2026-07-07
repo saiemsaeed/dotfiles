@@ -27,14 +27,9 @@ export CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1
 
 export LOUNGE_LOCAL_CERTIFICATE=/Users/saiemsaeed/code/zalando/zl-skipper/tools/proxy/_wildcard.local.zlounge.org.pem
 export LOUNGE_LOCAL_CERTIFICATE_KEY=/Users/saiemsaeed/code/zalando/zl-skipper/tools/proxy/_wildcard.local.zlounge.org-key.pem
-
-set_tab_title() {
-    local title="${PWD##*/}"  # Get the current directory name
-    echo -ne "\033]0;${title}\007"  # Set the terminal title
-}
-
-# Call the function before each prompt
-precmd_functions+=(set_tab_title)
-
 export LG_CONFIG_FILE="/Users/saiemsaeed/.config/lazygit/config.yaml"
 
+export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
+
+# opencode
+export PATH=/Users/saiemsaeed/.opencode/bin:$PATH
