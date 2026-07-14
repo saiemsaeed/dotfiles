@@ -4,6 +4,9 @@
 alias vim="nvim"
 alias vi="nvim"
 
+# herdr aliases
+alias h="herdr"
+
 # Git aliases
 # alias lg="lazygit"
 alias gco="git checkout"
